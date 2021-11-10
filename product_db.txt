@@ -1,0 +1,30 @@
+drop database if exists product_db;
+create database product_db;
+use product_db;
+
+create table product (
+prod_id varchar(30) not null,
+product_name varchar(100),
+price float,
+stock int,
+description varchar(500),
+image varchar(50),
+seller_id varchar(30),
+category varchar(30),
+sub_category varchar(30),
+product_rating float,
+
+constraint product_pk primary key (prod_id)
+);
+
+create table subscribed_product (
+buyer_id varchar(30),
+prod_id varchar(30),
+quantity int,
+
+constraint subs_prod_pk primary key (buyer_id,prod_id)
+);
+insert into product values('p101','Sparx',700,200,'durable shoes','Sparx.jpeg','s104','footwear','sneakers',7);
+insert into product values('p102','Bajaj MW',5000,150,'electricity efficient','Microwave.jpeg','s105','electronics','microwave',8);
+insert into product values('p103','Redmi X',12000,250,'best in 12k','RedmiX.png','s106','mobiles','xiaomi',9);
+insert into product values('p104','Realme X',10000,300,'best in 10k','RealMeX.png','s107','mobiles','real me',10);
